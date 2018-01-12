@@ -1,0 +1,41 @@
+{
+  "name": "Arrow",
+  "version": "1.0.0.0-beta",
+  "description": "The slickest Discord Bot around.",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint --fix src/**",
+    "docs": "mkdir backup && mv docs/mkdocs.yml docs/docs backup/ && cd backup && mkdocs build && cd .. && rm -R docs/* && mv backup/docs backup/mkdocs.yml backup/site/* docs/ && rm -R backup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FozzieHi/Arrow"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "nodejs",
+    "discord.js"
+  ],
+  "author": "Fozzie#8606",
+  "license": "Apache License 2.0",
+  "homepage": "https://arrowdiscord.com/",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "leven": "^2.1.0",
+    "mongodb": "^2.2.33",
+    "patron.js": "github:vim2meta/patron.js",
+    "require-all": "^2.2.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^3.0.2",
+    "erlpack": "github:hammerandchisel/erlpack",
+    "uws": "^0.14.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0"
+  },
+  "eslintIgnore": [
+    "**/*.json"
+  ]
+}
