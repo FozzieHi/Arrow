@@ -2,6 +2,7 @@ const ModerationService = require('../services/ModerationService.js');
 const Constants = require('../utility/Constants.js');
 const db = require('../database');
 const client = require('../singletons/client.js');
+const StringUtil = require('../utility/StringUtil.js');
 
 client.on('guildMemberAdd', async (member) => {
   const guild = client.guilds.get(member.guild.id);
