@@ -6,7 +6,7 @@ const client = require('../singletons/client.js');
 client.on('guildMemberAdd', async (member) => {
   const guild = client.guilds.get(member.guild.id);
   const dbGuild = await db.guildRepo.getGuild(member.guild.id);
-  if (!dbGuild.roles.join.isNullOrWhiteSpace()) {
+  if (!StringUtil.isNullOrWhiteSpace(dbGuild.roles.join)) {
     const role = guild.roles.get(dbGuild.roles.join);
     member.addRole(role);
   }
