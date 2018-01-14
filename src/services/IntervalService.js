@@ -7,7 +7,7 @@ class IntervalService {
 
     for (const key in obj) {
       if (obj.hasOwnProperty(key) === true) {
-        obj[key].client;
+        obj[key](client);
       }
     }
   }

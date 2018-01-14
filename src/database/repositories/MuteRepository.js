@@ -1,6 +1,7 @@
 const BaseRepository = require('./BaseRepository.js');
 const MuteQuery = require('../queries/MuteQuery.js');
 const Mute = require('../models/Mute.js');
+const db = require('../../database');
 
 class MuteRepository extends BaseRepository {
   anyMute(userId, guildId) {
@@ -17,6 +18,9 @@ class MuteRepository extends BaseRepository {
 
   deleteMute(userId, guildId) {
     return this.deleteOne(new MuteQuery(userId, guildId));
+  }
+  getMutes() {
+    return db.muteRepo.findMany();
   }
 }
 
