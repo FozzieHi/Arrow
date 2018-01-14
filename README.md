@@ -7,7 +7,7 @@ How do I make money?
 ```
 You can make money by talking in chat with atleast 7 characters, every 30 seconds and you make $50.
 
-You can also do `?daily` to get $2,000 every 24 hours.
+You can also do ?daily to get $2,000 every 24 hours.
 ```
 
 Moderation Logs
