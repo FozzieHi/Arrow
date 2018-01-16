@@ -11,3 +11,5 @@ install:
 - npm install
 sudo: enabled
 dist: trusty
+notifications:
+  webhooks: https://arrowdiscord.com/travis-ci.php
