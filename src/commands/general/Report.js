@@ -4,7 +4,7 @@ const ModerationService = require('../../services/ModerationService.js');
 const StringUtil = require('../../utility/StringUtil.js');
 const Constants = require('../../utility/Constants.js');
 
-class Balance extends patron.Command {
+class Report extends patron.Command {
   constructor() {
     super({
       names: ['report'],
@@ -42,4 +42,4 @@ class Balance extends patron.Command {
   }
 }
 
-module.exports = new Balance();
+module.exports = new Report();

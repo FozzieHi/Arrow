@@ -1,7 +1,7 @@
 const patron = require('patron.js');
 const db = require('../../database');
 
-class SetModLog extends patron.Command {
+class SetReportsChannel extends patron.Command {
   constructor() {
     super({
       names: ['setrepots', 'setreportchannel', 'setreportschannel'],
@@ -26,4 +26,4 @@ class SetModLog extends patron.Command {
   }
 }
 
-module.exports = new SetModLog();
+module.exports = new SetReportsChannel();
