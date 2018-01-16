@@ -87,7 +87,7 @@ class ModerationService {
     const options = {
       color: color,
       footer: {
-        text: 'Report #' + dbGuild.misc.reportNumber
+        text: 'Report #' + dbGuild.reportNumber
       },
       timestamp: true
     };
@@ -96,11 +96,11 @@ class ModerationService {
       options.author = {
         name: reporter.tag,
         icon: reporter.avatarURL,
-        URL: Constants.data.links.botInvite
+        URL: Constants.botInvite
       };
     }
 
-    let description = '**Report ID:** ' + dbGuild.misc.reportNumber + '\n';
+    let description = '**Report ID:** ' + dbGuild.reportNumber + '\n';
 
     if (reportedUser !== null) {
       description += '**User:** ' + reportedUser.tag + ' (' + reportedUser.id + ')\n';
@@ -110,7 +110,7 @@ class ModerationService {
       description += '**Reason:** ' + reason + '\n';
     }
 
-    await db.guildRepo.upsertGuild(dbGuild.guildId, { $inc: { 'misc.reportNumber': 1 } });
+    await db.guildRepo.upsertGuild(dbGuild.guildId, { $inc: { reportNumber: 1 } });
     return sender.send(channel, description, options);
   }
 }

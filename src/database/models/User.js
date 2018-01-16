@@ -6,6 +6,7 @@ class User {
     this.warns = 0;
     this.kicks = 0;
     this.bans = 0;
+    this.reports = 0;
   }
 }
 

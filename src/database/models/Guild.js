@@ -14,7 +14,8 @@ class Guild {
     this.channels = {
       gambling: null,
       modLog: null,
-      welcome: null
+      welcome: null,
+      reports: null
     };
   }
 }

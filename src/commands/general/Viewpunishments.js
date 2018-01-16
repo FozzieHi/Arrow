@@ -25,7 +25,7 @@ class Viewpunishments extends patron.Command {
     const dbUser = msg.author.id === args.member.id ? msg.dbUser : await db.userRepo.getUser(args.member.id, msg.guild.id);
 
     return sender.send(StringUtil.boldify(args.member.user.tag) + '\'s punishments:\n\n**Warnings:** ' + (dbUser.warns === undefined ? '0' : dbUser.warns) + '\n**Mutes:** ' + (dbUser.mutes === undefined ? '0' : dbUser.mutes) + '\n**Kicks:** ' +
-      (dbUser.kicks === undefined ? '0' : dbUser.kicks) + '\n**Bans:** ' + (dbUser.bans === undefined ? '0' : dbUser.bans));
+      (dbUser.kicks === undefined ? '0' : dbUser.kicks) + '\n**Bans:** ' + (dbUser.bans === undefined ? '0' : dbUser.bans) + '\n\n**Reports:** ' + (dbUser.reports === undefined ? '0' : dbUser.reports));
   }
 }
 
