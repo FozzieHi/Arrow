@@ -9,7 +9,7 @@ class Database {
       Guild: require('../queries/GuildQuery.js'),
       Id: require('../queries/IdQuery.js'),
       User: require('../queries/UserQuery.js'),
-      Mute: require('../queries/MuteQuery.js')
+      Mute: require('../queries/MuteQuery.js'),
     };
 
     this.updates = {
@@ -20,7 +20,7 @@ class Database {
     this.models = {
       Guild: require('../models/Guild.js'),
       Mute: require('../models/Mute.js'),
-      User: require('../models/User.js')
+      User: require('../models/User.js'),
     };
   }
 
@@ -30,7 +30,6 @@ class Database {
     this.guildRepo = new GuildRepository(await db.createCollection('guilds'));
     this.userRepo = new UserRepository(await db.createCollection('users'));
     this.muteRepo = new MuteRepository(await db.createCollection('mutes'));
-
     await db.collection('guilds').createIndex('guildId', { unique: true });
   }
 }

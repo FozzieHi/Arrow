@@ -37,7 +37,8 @@ class Report extends patron.Command {
     }
     await ModerationService.trySendReport(msg.dbGuild, msg.guild, args.member.user, msg.author, args.reason, Constants.banColor);
     await db.userRepo.upsertUser(args.member.id, msg.guild.id, { $inc: { reports: 1 } });
-    const reply = await sender.reply('Successfully reported' + StringUtil.boldify(args.member.user.tag) + '.');
+    const reply = await sender.reply('Successfully reported ' + StringUtil.boldify(args.member.user.tag) + '.');
+    await msg.delete();
     return reply.delete(3000);
   }
 }
