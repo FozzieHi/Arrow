@@ -37,7 +37,8 @@ class Constants {
       'RELATIONSHIP_REMOVE'
     ];
 
-    this.game = '?help | arrowdiscord.com';    this.prefix = '?';
+    this.game = '?help | arrowdiscord.com';
+    this.prefix = '?';
 
     this.regexes = {
       markdown: /(\*|~|`|_)+/g,
