@@ -2,6 +2,7 @@ const patron = require('patron.js');
 const Constants = require('../../utility/Constants.js');
 const ModerationService = require('../../services/ModerationService.js');
 const StringUtil = require('../../utility/StringUtil.js');
+const db = require('../../database');
 
 class Unmute extends patron.Command {
   constructor() {
@@ -43,6 +44,7 @@ class Unmute extends patron.Command {
     }
 
     await args.member.removeRole(role);
+    await db.muteRepo.deleteMute(args.member.user.id, msg.guild.id);
     await sender.reply('Successfully unmuted ' + StringUtil.boldify(args.member.user.tag) + '.');
     await sender.dm(args.member.user, StringUtil.boldify(msg.author.tag) + ' has unmuted you' + (StringUtil.isNullOrWhiteSpace(args.reason) ? '.' : ' for the reason: ' + args.reason + '.'), { guild: msg.guild });
     return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Unmute', Constants.unmuteColor, args.reason, msg.author, args.member.user);

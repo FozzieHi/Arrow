@@ -8,8 +8,8 @@ class MuteRepository extends BaseRepository {
     return this.any(new MuteQuery(userId, guildId));
   }
 
-  insertMute(userId, guildId, muteLength) {
-    return this.insertOne(new Mute(userId, guildId, muteLength));
+  insertMute(userId, guildId) {
+    return this.insertOne(new Mute(userId, guildId));
   }
 
   findMute(userId, guildId) {

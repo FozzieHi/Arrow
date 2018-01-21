@@ -1,9 +1,7 @@
 class Mute {
-  constructor(userId, guildId, muteLength) {
+  constructor(userId, guildId) {
     this.userId = userId;
     this.guildId = guildId;
-    this.muteLength = muteLength;
-    this.mutedAt = Date.now();
   }
 }
 
