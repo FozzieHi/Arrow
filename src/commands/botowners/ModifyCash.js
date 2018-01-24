@@ -28,7 +28,7 @@ class ModifyCash extends patron.Command {
 
   async run(msg, args, sender) {
     await db.userRepo.modifyCash(msg.dbGuild, args.member, args.amount * 100);
-    return sender.reply('Successfully modifed ' + (args.member.id === msg.author.id ? 'your' : StringUtil.boldify(args.member.user.tag) + '\'s') + ' balance.');
+    return sender.reply('Successfully modified ' + (args.member.id === msg.author.id ? 'your' : StringUtil.boldify(args.member.user.tag) + '\'s') + ' balance.');
   }
 }
 

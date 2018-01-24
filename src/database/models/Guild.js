@@ -5,6 +5,7 @@ class Guild {
     this.reportNumber = 1;
     this.editLogs = true;
     this.deleteLogs = true;
+    this.blackListed = false;
     this.roles = {
       mod: [],
       rank: [],
