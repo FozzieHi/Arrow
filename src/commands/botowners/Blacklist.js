@@ -20,8 +20,8 @@ class LeaveGuild extends patron.Command {
   }
 
   async run(msg, args, sender) {
+    const guildLeft = await msg.client.guilds.get(args.guildid);
     const guildDB = await db.guildRepo.getGuild(msg.guild.id);
-    const guildLeft = msg.client.guilds.get(args.guildid);
     if (guildDB.blackListed === false || guildDB.blackListed === undefined) {
       await db.guildRepo.upsertGuild(msg.guild.id, { $set: { blackListed: true } });
       await sender.reply('Successfully blacklisted the guild `' + guildLeft.name + '` (' + args.guildid + ').');
