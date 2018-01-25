@@ -1,7 +1,7 @@
 const patron = require('patron.js');
 const db = require('../../database');
 
-class LeaveGuild extends patron.Command {
+class Blacklist extends patron.Command {
   constructor() {
     super({
       names: ['bl', 'blacklist', 'blacklistguild', 'blguild'],
@@ -26,11 +26,10 @@ class LeaveGuild extends patron.Command {
       await db.guildRepo.upsertGuild(msg.guild.id, { $set: { blackListed: true } });
       await sender.reply('Successfully blacklisted the guild `' + guildLeft.name + '` (' + args.guildid + ').');
       return guildLeft.leave();
-    } else {
-      await db.guildRepo.upsertGuild(msg.guild.id, { $set: { blackListed: false } });
-      await sender.reply('Successfully unblacklisted the guild `' + guildLeft.name + '` (' + args.guildid + ').');
     }
+    await db.guildRepo.upsertGuild(msg.guild.id, { $set: { blackListed: false } });
+    return sender.reply('Successfully unblacklisted the guild `' + guildLeft.name + '` (' + args.guildid + ').');
   }
 }
 
-module.exports = new LeaveGuild();
+module.exports = new Blacklist();
