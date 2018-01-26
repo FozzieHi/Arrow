@@ -16,7 +16,7 @@ class Kick extends patron.Command {
           name: 'member',
           key: 'member',
           type: 'member',
-          example: 'Fozzie#8606',
+          example: 'Fozzie#0001',
           preconditions: ['nomoderator']
         }),
         new patron.Argument({

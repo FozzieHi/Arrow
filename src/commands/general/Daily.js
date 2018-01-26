@@ -17,7 +17,7 @@ class Daily extends patron.Command {
           key: 'member',
           type: 'member',
           defaultValue: patron.ArgumentDefault.Member,
-          example: 'Fozzie#8606',
+          example: 'Fozzie#0001',
           remainder: true
         })
       ]

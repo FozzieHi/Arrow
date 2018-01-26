@@ -23,7 +23,7 @@ class EditLogs extends patron.Command {
       await db.guildRepo.upsertGuild(msg.guild.id, { $set: { deleteLogs: null } });
       return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Toggle Delete Logs', Constants.banColor, '', msg.author, null, 'Status', 'Disabled');
     }
-    return sender.reply('Guild not found in Database (Code 502), please DM this error to **Fozzie#8606** with context.', { color: Constants.errorColor });
+    return sender.reply('Guild not found in Database (Code 502), please DM this error to **Fozzie#0001** with context.', { color: Constants.errorColor });
   }
 }
 

@@ -14,7 +14,7 @@ class GiveRole extends patron.Command {
           name: 'member',
           key: 'member',
           type: 'member',
-          example: 'Fozzie#8606'
+          example: 'Fozzie#0001'
         }),
         new patron.Argument({
           name: 'role',

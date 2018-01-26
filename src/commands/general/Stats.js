@@ -22,7 +22,7 @@ class Stats extends patron.Command {
 
     await sender.dmFields(
       [
-        'Author', 'Fozzie#8606', 'Guilds', msg.client.guilds.size,
+        'Author', 'Fozzie#0001', 'Guilds', msg.client.guilds.size,
         'Users', users, 'Uptime', 'Days: ' + uptime.days + '\nHours: '+ uptime.hours + '\nMinutes: ' + uptime.minutes
       ]);
 

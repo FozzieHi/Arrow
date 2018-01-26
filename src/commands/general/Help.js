@@ -24,7 +24,7 @@ class Help extends patron.Command {
 
   async run(msg, args, sender) {
     if (StringUtil.isNullOrWhiteSpace(args.command)) {
-      await sender.dm(msg.author, '**Arrow** is the slickest bot in town, all of the commands can be found at https://arrowdiscord.com/commands.\n\nYou can find a specific command\'s information by doing `?help [Command]`.\n\n**Arrow** is made by **Fozzie#8606**.');
+      await sender.dm(msg.author, '**Arrow** is the slickest bot in town, all of the commands can be found at https://arrowdiscord.com/commands.\n\nYou can find a specific command\'s information by doing `?help [Command]`.\n\n**Arrow** is made by **Fozzie#0001**.');
 
       if (msg.channel.type !== 'dm') {
         return sender.reply('You have been DMed with all of the command information.');

@@ -13,7 +13,7 @@ class DM extends patron.Command {
           name: 'user',
           key: 'user',
           type: 'user',
-          example: 'Fozzie#8606'
+          example: 'Fozzie#0001'
         }),
         new patron.Argument({
           name: 'message',
