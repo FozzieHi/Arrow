@@ -14,11 +14,11 @@ client.on('guildMemberAdd', async (member) => {
   if (dbGuild.roles.muted !== null && await db.muteRepo.anyMute(member.id, member.guild.id) === true) {
     const role = member.guild.roles.get(dbGuild.roles.muted);
 
-    if (role === undefined || member.guild.me.hasPermission('MANAGE_ROLES') === false || role.position >= member.guild.me.highestRole.position) {
-      return ModerationService.tryModLog(dbGuild, guild, 'Member Join', Constants.unmuteColor, '', member.user, null);
+    if (!(role === undefined || member.guild.me.hasPermission('MANAGE_ROLES') === false || role.position >= member.guild.me.highestRole.position)) {
+      await member.addRole(role);
     }
-    await ModerationService.tryModLog(dbGuild, guild, 'Member Join', Constants.unmuteColor, '', member.user, null);
-    return member.addRole(role);
   }
-  return ModerationService.tryModLog(dbGuild, guild, 'Member Join', Constants.unmuteColor, '', member.user, null);
+  if (dbGuild.joinLogs !== false) {
+    return ModerationService.tryModLog(dbGuild, guild, 'Member Join', Constants.unmuteColor, '', member.user, null);
+  }
 });
