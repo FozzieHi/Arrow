@@ -6,7 +6,7 @@ class SetAnnouncementsChannel extends patron.Command {
     super({
       names: ['setannouncementchannel', 'setannouncementschannel', 'setannounce', 'announcechannel', 'setannouncechannel'],
       groupName: 'administration',
-      description: 'Sets the moderation log channel.',
+      description: 'Sets the announcements channel.',
       args: [
         new patron.Argument({
           name: 'channel',
