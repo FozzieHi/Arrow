@@ -13,11 +13,10 @@ class Ban extends patron.Command {
       botPermissions: ['BAN_MEMBERS'],
       args: [
         new patron.Argument({
-          name: 'member',
-          key: 'member',
-          type: 'member',
-          example: 'Fredrick#4872',
-          preconditions: ['nomoderator']
+          name: 'user',
+          key: 'user',
+          type: 'user',
+          example: 'Fredrick#4872'
         }),
         new patron.Argument({
           name: 'reason',
@@ -32,14 +31,17 @@ class Ban extends patron.Command {
   }
 
   async run(msg, args, sender) {
-    if (msg.guild.members.has(args.member.id)) {
-      await sender.dm(args.member.user, StringUtil.boldify(msg.author.tag) + ' has banned you' + (StringUtil.isNullOrWhiteSpace(args.reason) ? '.' : ' for the reason: ' + args.reason + '.'), { guild: msg.guild });
+    if (msg.guild.members.has(args.user.id)) {
+      if (ModerationService.getPermLevel(msg.dbGuild, args.user) !== 0) {
+        return sender.reply('You may not use this command on a moderator.', { color: Constants.errorColor });
+      }
+      await db.userRepo.upsertUser(args.user.id, msg.guild.id, { $inc: { bans: 1 } });
+      await sender.dm(args.user, StringUtil.boldify(msg.author.tag) + ' has banned you' + (StringUtil.isNullOrWhiteSpace(args.reason) ? '.' : ' for the reason: ' + args.reason + '.'), { guild: msg.guild });
     }
 
-    await msg.guild.ban(args.member);
-    await sender.reply('Successfully banned ' + StringUtil.boldify(args.member.user.tag) + '.');
-    await db.userRepo.upsertUser(args.member.id, msg.guild.id, { $inc: { bans: 1 } });
-    return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Ban', Constants.banColor, args.reason, msg.author, args.member.user);
+    await msg.guild.ban(args.user);
+    await sender.reply('Successfully banned ' + StringUtil.boldify(args.user.tag) + '.');
+    return ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Ban', Constants.banColor, args.reason, msg.author, args.user);
   }
 }
 
