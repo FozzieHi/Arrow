@@ -1,3 +1,5 @@
+const USD = require('../utility/USD.js');
+
 class NumberUtil {
   isEven(num) {
     return num % 2 === 0;
@@ -25,6 +27,14 @@ class NumberUtil {
     }
 
     return s;
+  }
+
+  realValue(input) {
+    return input / 100;
+  }
+
+  format(input) {
+    return USD(input / 100);
   }
 }
 
