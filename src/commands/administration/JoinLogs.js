@@ -7,8 +7,8 @@ class JoinLogs extends patron.Command {
   constructor() {
     super({
       names: ['toggledjoinlogs', 'togglejoinlogs', 'joinlogs', 'joinleavelogs', 'leavelogs', 'toggleleavelogs', 'toggledleavelogs'],
-      groupName: 'owner',
-      description: 'Toggle Edit Logs.'
+      groupName: 'administration',
+      description: 'Toggle Join/Leave Logs.'
     });
   }
 
