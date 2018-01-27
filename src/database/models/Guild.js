@@ -16,7 +16,8 @@ class Guild {
       gambling: null,
       modLog: null,
       welcome: null,
-      reports: null
+      reports: null,
+      announcements: null
     };
   }
 }

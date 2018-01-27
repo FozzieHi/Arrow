@@ -27,7 +27,13 @@ class MassAnnounce extends patron.Command {
     for (let i = 0; i < sortedGuilds.length; i++) {
       await PromiseUtil.delay(2500);
       const mainChannel = sortedGuilds[i].defaultChannel;
-      if (mainChannel !== undefined) {
+      const announcementChannel = sortedGuilds[i].getChannel(sortedGuilds[i].dbGuild.channels.announcements);
+      if (announcementChannel !== undefined || announcementChannel !== null) {
+        announcementChannel.send(args.message)
+          .catch(async (err) => {
+            await PromiseUtil.delay(60000);
+          });
+      } else if (mainChannel !== undefined || mainChannel !== null) {
         mainChannel.send(args.message)
           .catch(async (err) => {
             await PromiseUtil.delay(60000);
