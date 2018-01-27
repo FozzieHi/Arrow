@@ -18,11 +18,12 @@ Nearly every log imaginable is logged with Arrow, from join messages to specific
 Self Hosting
 ```
 1) Download the zip file and extract it.
-2) Go to src and create a file named 'credentials.json'.
-3) Copy the template into credentials.json from below and edit it (Free database hosting available at mlab.com) [Not sponsored].
-4) Create an empty folder called 'intervals' in src.
-5) Go back to src and open up Command Prompt in that area. Then type in `node index.js`.
-6) Have fun!
+2) Open the Arrow master folder and run `npm install`.
+3) Go to src and create a file named 'credentials.json'.
+4) Copy the template into credentials.json from below and edit it (Free database hosting available at mlab.com) [Not sponsored].
+5) Create an empty folder called 'intervals' in src.
+6) Go back to src and open up Command Prompt in that area. Then type in `node index.js`.
+7) Have fun!
 ```
 
 credentials.json template.
