@@ -4,7 +4,7 @@ const db = require('../../database');
 class SetReportsChannel extends patron.Command {
   constructor() {
     super({
-      names: ['setrepots', 'setreportchannel', 'setreportschannel'],
+      names: ['setreports', 'setreportchannel', 'setreportschannel'],
       groupName: 'administration',
       description: 'Sets the reports channel.',
       args: [
