@@ -16,7 +16,8 @@ class Report extends patron.Command {
           key: 'member',
           type: 'member',
           defaultValue: patron.ArgumentDefault.Member,
-          example: 'Fozzie#0001'
+          example: 'Fozzie#0001',
+          preconditions: ['noself']
         }),
         new patron.Argument({
           name: 'reason',
