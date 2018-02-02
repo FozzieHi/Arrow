@@ -25,12 +25,11 @@ client.on('message', (msg) => {
       msg.dbUser = await db.userRepo.getUser(msg.author.id, msg.guild.id);
       msg.dbGuild = await db.guildRepo.getGuild(msg.guild.id);
     }
+    const sender = new Sender(msg);
 
     if (Constants.regexes.prefix.test(msg.content) === false) {
-      return inGuild === true ? ChatService.applyCash(msg) : null;
+      return inGuild === true ? ChatService.applyCash(msg, sender) : null;
     }
-
-    const sender = new Sender(msg);
 
     await Logger.log('Message Id: ' + msg.id + ' | User Id: ' + msg.author.id + (inGuild === true ? ' | Guild Id: ' + msg.guild.id : '') + ' | User: ' + msg.author.tag + (inGuild ? ' | Guild: ' + msg.guild.name : '') + ' | Content: ' + msg.content, 'DEBUG');
 

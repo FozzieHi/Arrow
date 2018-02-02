@@ -8,7 +8,6 @@ class MassAnnounce extends patron.Command {
       names: ['massannounce'],
       groupName: 'botowners',
       description: 'Mass announce a message accross all guilds.',
-      guildOnly: false,
       args: [
         new patron.Argument({
           name: 'message',
@@ -28,7 +27,7 @@ class MassAnnounce extends patron.Command {
     for (let i = 0; i < sortedGuilds.length; i++) {
       await PromiseUtil.delay(2500);
       const mainChannel = sortedGuilds[i].defaultChannel;
-      if (mainChannel !== undefined || mainChannel !== null) {
+      if (mainChannel !== undefined) {
         mainChannel.send(args.message)
           .catch(async (err) => {
             await PromiseUtil.delay(60000);
