@@ -7,6 +7,7 @@ class Guild {
     this.deleteLogs = true;
     this.joinLogs = true;
     this.blackListed = false;
+    this.lottery = true;
     this.roles = {
       mod: [],
       rank: [],

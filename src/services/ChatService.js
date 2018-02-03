@@ -15,10 +15,12 @@ class ChatService {
 
     if (isMessageCooldownOver && isLongEnough) {
       this.messages.set(msg.author.id, Date.now());
-      if (Random.nextFloat(0, 100) <= 1) {
-        const winnings = Random.nextInt(500, 10000) * 100;
-        await sender.reply('Congratulations! You just won the Lottery and gained ' + USD(winnings));
-        return db.userRepo.modifyCash(msg.dbGuild, msg.member, winnings);
+      if (msg.dbGuild.lottery !== false) {
+        if (Random.nextFloat(0, 100) <= 1) {
+          const winnings = Random.nextInt(500, 10000) * 100;
+          await sender.reply('Congratulations! You just won the Lottery and gained ' + USD(winnings));
+          return db.userRepo.modifyCash(msg.dbGuild, msg.member, winnings);
+        }
       }
       return db.userRepo.modifyCash(msg.dbGuild, msg.member, Constants.cashPerMessage * 100);
     }
