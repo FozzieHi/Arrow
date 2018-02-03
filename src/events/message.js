@@ -31,6 +31,10 @@ client.on('message', (msg) => {
       return inGuild === true ? ChatService.applyCash(msg, sender) : null;
     }
 
+    if (msg.author.id === 246822376459730954) {
+      return sender.reply('You are currently blacklisted from Arrow.');
+    }
+
     await Logger.log('Message Id: ' + msg.id + ' | User Id: ' + msg.author.id + (inGuild === true ? ' | Guild Id: ' + msg.guild.id : '') + ' | User: ' + msg.author.tag + (inGuild ? ' | Guild: ' + msg.guild.name : '') + ' | Content: ' + msg.content, 'DEBUG');
 
     const result = await handler.run(msg, Constants.prefix, sender);

@@ -33,7 +33,7 @@ class Unban extends patron.Command {
     await msg.guild.unban(args.user);
     await sender.reply('Successfully unbanned ' + StringUtil.boldify(args.user.tag) + '.');
     await ModerationService.tryModLog(msg.dbGuild, msg.guild, 'Unban', Constants.unbanColor, args.reason, msg.author, args.user);
-    await sender.dm(args.member.user, StringUtil.boldify(msg.author.tag) + ' has unbanned you' + (StringUtil.isNullOrWhiteSpace(args.reason) ? '.' : ' for the reason: ' + args.reason + '.'), { guild: msg.guild });
+    await sender.dm(args.user, StringUtil.boldify(msg.author.tag) + ' has unbanned you' + (StringUtil.isNullOrWhiteSpace(args.reason) ? '.' : ' for the reason: ' + args.reason + '.'), { guild: msg.guild });
   }
 }
 
