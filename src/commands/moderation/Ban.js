@@ -32,7 +32,8 @@ class Ban extends patron.Command {
 
   async run(msg, args, sender) {
     if (msg.guild.members.has(args.user.id)) {
-      if (ModerationService.getPermLevel(msg.dbGuild, args.user) !== 0) {
+      const member = msg.guild.members.get(args.user.id);
+      if (ModerationService.getPermLevel(msg.dbGuild, member) !== 0) {
         return sender.reply('You may not use this command on a moderator.', { color: Constants.errorColor });
       }
       await db.userRepo.upsertUser(args.user.id, msg.guild.id, { $inc: { bans: 1 } });
