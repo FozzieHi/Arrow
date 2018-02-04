@@ -9,7 +9,8 @@ class GlobalLeaderboard extends patron.Command {
     super({
       names: ['gleaderboards', 'glb', 'ghighscores', 'ghighscore', 'gleaderboard', 'gbaltop', 'globallb', 'globalleaderboard', 'globalhighscore'],
       groupName: 'general',
-      description: 'View the wealthiest Citizens globally.'
+      description: 'View the wealthiest Citizens globally.',
+      cooldown: 600000
     });
   }
 

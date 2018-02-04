@@ -8,6 +8,7 @@ class GlobalRank extends patron.Command {
       names: ['grank', 'ginfo', 'ginformation', 'globalrank', 'globalinfo', 'globalinformation'],
       groupName: 'general',
       description: 'View the Global information of anyone.',
+      cooldown: 600000,
       args: [
         new patron.Argument({
           name: 'member',
