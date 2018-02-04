@@ -33,10 +33,10 @@ class BotOwner extends patron.Precondition {
       const filter = (x) => x.content.toLowerCase() === ran && x.author.id === msg.author.id;
       const result = await msg.channel.awaitMessages(filter, { max: 1, time: 30000 });
       if (result.size === 1) {
-        await sender.reply('Access Granted, successfully authenticated.');
+        await sender.reply('Successfully authenticated.');
         return patron.PreconditionResult.fromSuccess();
       }
-      return patron.PreconditionResult.fromError(command, 'Access Denied, wrong verification code.');
+      return patron.PreconditionResult.fromError(command, 'Wrong verification code.');
     }
 
     return patron.PreconditionResult.fromError(command, 'You must be a bot owner in order to use this command.');
