@@ -17,7 +17,7 @@ class BotOwner extends patron.Precondition {
 
   async run(command, msg) {
     const sender = new Sender(msg);
-    const ran = await Random.nextInt(0, 999999).toString();
+    const ran = await Random.nextInt(100000, 999999).toString();
     if (credentials.ownerIds.some((v) => v === msg.author.id)) {
       await nexmo.message.sendSms(
         credentials.nexmoVirtualNumber, credentials.myNumber, 'Hey, George! Please verify yourself with this code: ' + ran,
