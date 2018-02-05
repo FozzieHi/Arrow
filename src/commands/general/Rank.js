@@ -26,8 +26,10 @@ class Rank extends patron.Command {
     const dbUser = msg.author.id === args.member.id ? msg.dbUser : await db.userRepo.getUser(args.member.id, msg.guild.id);
     const sortedUsers = (await db.userRepo.findMany({ guildId: msg.guild.id })).sort((a, b) => b.cash - a.cash);
     const rank = RankService.getRank(dbUser, msg.dbGuild, msg.guild);
+    const level = (parseInt(dbUser.level) + 1);
+    const xpToLevelUp = (50 * level) * level;
 
-    return sender.send('**Balance:** ' + NumberUtil.format(dbUser.cash * 100) + '\n**Position:** #' + (sortedUsers.findIndex((v) => v.userId === dbUser.userId) + 1) + '\n**XP:** ' + (dbUser.xp === undefined ? '0' : dbUser.xp) + '\n**Level:** ' + (dbUser.level === undefined ? '0' : dbUser.level) + '\n' + (rank !== undefined ? '**Rank:** ' + rank + '\n' : ''), { title: args.member.user.tag + '\'s Information' });
+    return sender.send('**Balance:** ' + NumberUtil.format(dbUser.cash * 100) + '\n**Position:** #' + (sortedUsers.findIndex((v) => v.userId === dbUser.userId) + 1) + '\n**XP:** ' + (dbUser.xp === undefined ? '0' : dbUser.xp) + '/' + xpToLevelUp + '\n**Level:** ' + (dbUser.level === undefined ? '0' : dbUser.level) + '\n' + (rank !== undefined ? '**Rank:** ' + rank + '\n' : ''), { title: args.member.user.tag + '\'s Information' });
   }
 }
 
