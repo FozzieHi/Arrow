@@ -74,6 +74,10 @@ class Constants {
     this.intervals = {
       autoUnmute: 60000
     };
+    this.XP = {
+      min: 10,
+      max: 35
+    };
   }
 }
 
