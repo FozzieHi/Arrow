@@ -7,7 +7,7 @@ class Reset extends patron.Command {
   constructor() {
     super({
       names: ['reset'],
-      groupName: 'botowners',
+      groupName: 'owner',
       description: 'Resets all Arrow user data in your server.'
     });
   }
