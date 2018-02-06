@@ -26,12 +26,21 @@ client.on('message', (msg) => {
       msg.dbGuild = await db.guildRepo.getGuild(msg.guild.id);
     }
     const sender = new Sender(msg);
+    const options = {
+      color: Constants.errorColor,
+      footer: {
+        text: 'If you believe this is in error or you wish to appeal, contact Fozzie#0001.'
+      }
+    };
 
     if (Constants.regexes.prefix.test(msg.content) === false) {
       return inGuild === true ? ChatService.applyCash(msg, sender) : null;
     }
 
     await Logger.log('Message Id: ' + msg.id + ' | User Id: ' + msg.author.id + (inGuild === true ? ' | Guild Id: ' + msg.guild.id : '') + ' | User: ' + msg.author.tag + (inGuild ? ' | Guild: ' + msg.guild.name : '') + ' | Content: ' + msg.content, 'DEBUG');
+    if (msg.author.id === '295308397245366273') {
+      return sender.reply('You are currently blacklisted from Arrow\n\nReason: hypocrite.', options);
+    }
 
     const result = await handler.run(msg, Constants.prefix, sender);
 

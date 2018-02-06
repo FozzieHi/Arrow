@@ -11,6 +11,7 @@ class Gambling extends patron.Command {
       groupName: 'gambling',
       description: description,
       preconditions: preconditions,
+      cooldown: 10000,
       args: [
         new patron.Argument({
           name: 'bet',
