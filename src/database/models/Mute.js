@@ -5,4 +5,4 @@ class Mute {
   }
 }
 
-module.exports = Mute;
+module.exports = mute;
