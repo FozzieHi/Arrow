@@ -39,7 +39,7 @@ class Sender {
     } else if (descriptionType === 'string') {
       options.description = description;
     } else {
-      throw new Error('description must be an object or string');
+      throw new Error('The description must be an object or string');
     }
 
     return channel.send({ embed: new Embed(options) });
