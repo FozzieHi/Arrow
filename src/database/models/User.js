@@ -7,8 +7,6 @@ class User {
     this.kicks = 0;
     this.bans = 0;
     this.reports = 0;
-    this.xp = 0;
-    this.level = 1;
   }
 }
 
