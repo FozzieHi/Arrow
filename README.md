@@ -3,9 +3,9 @@
 
 The Arrow Discord Bot source code.
 
-How do I make money/xp?
+How do I make money?
 ```
-You can make $50 by talking in chat with atleast 7 characters, every 30 seconds, you will also get at random 10-35 xp.
+You can make $50 by talking in chat with atleast 7 characters, every 30 seconds.
 
 You can also do ?daily to get $2,000 every 24 hours.
 ```
