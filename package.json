@@ -23,7 +23,7 @@
   "dependencies": {
     "discord.js": "^11.2.1",
     "leven": "^2.1.0",
-    "mongodb": "^2.2.33",
+    "mongodb": "^3.1.13",
     "nexmo": "^2.2.0",
     "patron.js": "github:vim2meta/patron.js",
     "require-all": "^2.2.0"
